@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose';
 
 const dogSchema = new mongoose.Schema({
   name: String,
-  weight: Number,
+  owner: String,
   age: Number
 });
 

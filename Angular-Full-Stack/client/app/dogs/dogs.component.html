@@ -10,7 +10,7 @@
         <tr>
           <th>Name</th>
           <th>Age</th>
-          <th>Weight</th>
+          <th>Owner</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -23,7 +23,7 @@
         <tr *ngFor="let dog of dogs">
           <td>{{dog.name}}</td>
           <td>{{dog.age}}</td>
-          <td>{{dog.weight}}</td>
+          <td>{{dog.owner}}</td>
           <td>
             <button class="btn btn-sm btn-warning" (click)="enableEditing(dog)"><i class="fa fa-pencil"></i> Edit</button> 
             <button class="btn btn-sm btn-danger" (click)="deleteDog(dog)"><i class="fa fa-trash"></i> Delete</button>
@@ -41,7 +41,7 @@
                 <input class="form-control" type="number" name="age" [(ngModel)]="dog.age" placeholder="Age" min="0" required>
               </div>
               <div class="form-group">
-                <input class="form-control" type="number" name="weight" [(ngModel)]="dog.weight" placeholder="Weight" step="any" min="0" required>
+                <input class="form-control" type="text" name="owner" [(ngModel)]="dog.owner" placeholder="Owner" required>
               </div>
               <button class="btn btn-sm btn-primary" type="submit" [disabled]="!form.form.valid"><i class="fa fa-floppy-o"></i> Save</button>
             </form>
@@ -64,7 +64,7 @@
         <input class="form-control" type="number" name="age" formControlName="age" placeholder="Age" min="0">
       </div>
       <div class="form-group">
-        <input class="form-control" type="number" name="weight" formControlName="weight" placeholder="Weight" step="any" min="0">
+        <input class="form-control" type="text" name="owner" formControlName="owner" placeholder="Owner">
       </div>
       <button class="btn btn-primary" type="submit" [disabled]="!addDogForm.valid"><i class="fa fa-floppy-o"></i> Add</button>
     </form>
