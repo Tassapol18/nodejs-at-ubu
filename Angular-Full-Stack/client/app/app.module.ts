@@ -10,6 +10,7 @@ import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 import { AppComponent } from './app.component';
 import { CatsComponent } from './cats/cats.component';
+import { DogsComponent } from './dogs/dogs.component';
 import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -17,19 +18,19 @@ import { LogoutComponent } from './logout/logout.component';
 import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { DogsComponent } from './dogs/dogs.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CatsComponent,
+    DogsComponent,
     AboutComponent,
     RegisterComponent,
     LoginComponent,
     LogoutComponent,
     AccountComponent,
     AdminComponent,
-    NotFoundComponent,
-    DogsComponent
+    NotFoundComponent
   ],
   imports: [
     RoutingModule,

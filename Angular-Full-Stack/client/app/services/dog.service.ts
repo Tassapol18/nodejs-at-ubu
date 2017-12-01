@@ -1,39 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
-
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+
+import { Dog } from '../shared/models/dog.model';
 
 @Injectable()
 export class DogService {
 
-  private headers = new Headers({ 'Content-Type': 'application/json', 'charset': 'UTF-8' });
-  private options = new RequestOptions({ headers: this.headers });
+  constructor(private http: HttpClient) { }
 
-  constructor(private http: Http) { }
-
-  getDogs(): Observable<any> {
-    return this.http.get('/api/dogs').map(res => res.json());
+  getDogs(): Observable<Dog[]> {
+    return this.http.get<Dog[]>('/api/dogs');
   }
 
-  countDogs(): Observable<any> {
-    return this.http.get('/api/dogs/count').map(res => res.json());
+  countDogs(): Observable<number> {
+    return this.http.get<number>('/api/dogs/count');
   }
 
-  addDog(dog): Observable<any> {
-    return this.http.post('/api/dog', JSON.stringify(dog), this.options);
+  addDog(dog: Dog): Observable<Dog> {
+    return this.http.post<Dog>('/api/dog', dog);
   }
 
-  getDog(dog): Observable<any> {
-    return this.http.get(`/api/dog/${dog._id}`).map(res => res.json());
+  getDog(dog: Dog): Observable<Dog> {
+    return this.http.get<Dog>(`/api/dog/${dog._id}`);
   }
 
-  editDog(dog): Observable<any> {
-    return this.http.put(`/api/dog/${dog._id}`, JSON.stringify(dog), this.options);
+  editDog(dog: Dog): Observable<string> {
+    return this.http.put(`/api/dog/${dog._id}`, dog, { responseType: 'text' });
   }
 
-  deleteDog(dog): Observable<any> {
-    return this.http.delete(`/api/dog/${dog._id}`, this.options);
+  deleteDog(dog: Dog): Observable<string> {
+    return this.http.delete(`/api/dog/${dog._id}`, { responseType: 'text' });
   }
 
 }

@@ -5,9 +5,6 @@ import { DogService } from '../services/dog.service';
 import { ToastComponent } from '../shared/toast/toast.component';
 import { Dog } from '../shared/models/dog.model';
 
-
-
-
 @Component({
   selector: 'app-dogs',
   templateUrl: './dogs.component.html',
@@ -26,8 +23,8 @@ export class DogsComponent implements OnInit {
   owner = new FormControl('', Validators.required);
 
   constructor(private dogService: DogService,
-    private formBuilder: FormBuilder,
-    public toast: ToastComponent) { }
+              private formBuilder: FormBuilder,
+              public toast: ToastComponent) { }
 
   ngOnInit() {
     this.getDogs();

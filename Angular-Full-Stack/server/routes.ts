@@ -12,8 +12,8 @@ export default function setRoutes(app) {
   const router = express.Router();
 
   const catCtrl = new CatCtrl();
-  const userCtrl = new UserCtrl();
   const dogCtrl = new DogCtrl();
+  const userCtrl = new UserCtrl();
 
   // Cats
   router.route('/cats').get(catCtrl.getAll);
@@ -22,7 +22,8 @@ export default function setRoutes(app) {
   router.route('/cat/:id').get(catCtrl.get);
   router.route('/cat/:id').put(catCtrl.update);
   router.route('/cat/:id').delete(catCtrl.delete);
-  // Dog
+
+  // Dogs
   router.route('/dogs').get(dogCtrl.getAll);
   router.route('/dogs/count').get(dogCtrl.count);
   router.route('/dog').post(dogCtrl.insert);
